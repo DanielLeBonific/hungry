@@ -4,7 +4,7 @@ class Recipe {
   String calories;
   String time;
   String description;
-
+//ff
   List<Ingridient> ingridients;
   List<TutorialStep> tutorial;
   List<Review> reviews;
