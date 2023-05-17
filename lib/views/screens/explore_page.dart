@@ -17,7 +17,7 @@ class ExplorePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+      return  Scaffold(
       appBar: AppBar(
         backgroundColor: AppColor.primary,
         brightness: Brightness.dark,
@@ -136,5 +136,24 @@ class ExplorePage extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+Widget ChangeNotifierProvider({ExplorePageProvider Function(dynamic _) create, Scaffold child}) {
+}
+
+//State management
+class ExplorePageProvider extends ChangeNotifier {
+  final Recipe popularRecipe = RecipeHelper.popularRecipe;
+  List<Recipe> sweetFoodRecommendationRecipe =
+      RecipeHelper.sweetFoodRecommendationRecipe;
+
+  void updateSweetFoodRecommendations() {
+    // Fetch updated sweet food recommendation recipes
+    // and update the sweetFoodRecommendationRecipe list.
+    // You can use an API call, database query, or any other data source.
+    // Updated recipes
+
+    notifyListeners(); // Notify listeners about the state change
   }
 }

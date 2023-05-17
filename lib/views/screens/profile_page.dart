@@ -54,7 +54,7 @@ class ProfilePage extends StatelessWidget {
                       color: Colors.grey,
                       borderRadius: BorderRadius.circular(100),
                       // Profile Picture
-                      image: DecorationImage(image: AssetImage('assets/images/profile.jpg'), fit: BoxFit.cover),
+                      image: DecorationImage(image: AssetImage('assets/lico/mqdefault.jpg'), fit: BoxFit.cover),
                     ),
                   ),
                   Row(
@@ -80,12 +80,12 @@ class ProfilePage extends StatelessWidget {
                 UserInfoTile(
                   margin: EdgeInsets.only(bottom: 16),
                   label: 'Email',
-                  value: 'reinazahradummy@gmail.com',
+                  value: 'abikaamantaev820@gmail.com',
                 ),
                 UserInfoTile(
                   margin: EdgeInsets.only(bottom: 16),
                   label: 'Full Name',
-                  value: 'Reina Zahra Azizah',
+                  value: 'Abylkhair',
                 ),
                 UserInfoTile(
                   margin: EdgeInsets.only(bottom: 16),
@@ -96,7 +96,7 @@ class ProfilePage extends StatelessWidget {
                 UserInfoTile(
                   margin: EdgeInsets.only(bottom: 16),
                   label: 'Subscription Time',
-                  value: 'Until 22 Oct 2021',
+                  value: 'Until 17 May 2023',
                 ),
               ],
             ),
