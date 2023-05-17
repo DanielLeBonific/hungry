@@ -55,43 +55,64 @@ class HomePage extends StatelessWidget {
                       margin: EdgeInsets.only(top: 12),
                       padding: EdgeInsets.symmetric(horizontal: 16),
                       width: MediaQuery.of(context).size.width,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'Delicious Today',
-                            style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w600, fontFamily: 'inter'),
-                          ),
-                          TextButton(
-                            onPressed: () {
-                              Navigator.of(context).push(MaterialPageRoute(builder: (context) => DeliciousTodayPage()));
-                            },
-                            child: Text('see all'),
-                            style: TextButton.styleFrom(primary: Colors.white, textStyle: TextStyle(fontWeight: FontWeight.w400, fontSize: 14)),
-                          ),
-                        ],
+                      child: Builder(
+                        builder: (context) {
+                          try {
+                            return Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  'Delicious Today',
+                                  style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w600, fontFamily: 'inter'),
+                                ),
+                                TextButton(
+                                  onPressed: () {
+                                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => DeliciousTodayPage()));
+                                  },
+                                  child: Text('see all'),
+                                  style: TextButton.styleFrom(primary: Colors.white, textStyle: TextStyle(fontWeight: FontWeight.w400, fontSize: 14)),
+                                ),
+                              ],
+                            );
+                          } catch (e) {
+                            return Center(
+                              child: Text('Error: $e'),
+                            );
+                          }
+                        },
                       ),
                     ),
                     // Delicious Today - ListView
                     Container(
                       margin: EdgeInsets.only(top: 4),
                       height: 220,
-                      child: ListView.separated(
-                        itemCount: featuredRecipe.length,
-                        padding: EdgeInsets.symmetric(horizontal: 16),
-                        physics: BouncingScrollPhysics(),
-                        shrinkWrap: true,
-                        scrollDirection: Axis.horizontal,
-                        separatorBuilder: (context, index) {
-                          return SizedBox(
-                            width: 16,
-                          );
-                        },
-                        itemBuilder: (context, index) {
-                          return FeaturedRecipeCard(data: featuredRecipe[index]);
+                      child: Builder(
+                        builder: (context) {
+                          try {
+                            return ListView.separated(
+                              itemCount: featuredRecipe.length,
+                              padding: EdgeInsets.symmetric(horizontal: 16),
+                              physics: BouncingScrollPhysics(),
+                              shrinkWrap: true,
+                              scrollDirection: Axis.horizontal,
+                              separatorBuilder: (context, index) {
+                                return SizedBox(
+                                  width: 16,
+                                );
+                              },
+                              itemBuilder: (context, index) {
+                                return FeaturedRecipeCard(data: featuredRecipe[index]);
+                              },
+                            );
+                          } catch (e) {
+                            return Center(
+                              child: Text('Error: $e'),
+                            );
+                          }
                         },
                       ),
-                    ),
+                    )
+                    ,
                   ],
                 )
               ],

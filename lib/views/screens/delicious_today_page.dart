@@ -40,17 +40,27 @@ class DeliciousTodayPage extends StatelessWidget {
           Container(
             padding: EdgeInsets.all(16),
             width: MediaQuery.of(context).size.width,
-            child: ListView.separated(
-              shrinkWrap: true,
-              itemCount: featuredRecipe.length,
-              physics: NeverScrollableScrollPhysics(),
-              separatorBuilder: (context, index) {
-                return SizedBox(height: 16);
-              },
-              itemBuilder: (context, index) {
-                return RecipeTile(
-                  data: featuredRecipe[index],
-                );
+            child: Builder(
+              builder: (context) {
+                try {
+                  return ListView.separated(
+                    shrinkWrap: true,
+                    itemCount: featuredRecipe.length,
+                    physics: NeverScrollableScrollPhysics(),
+                    separatorBuilder: (context, index) {
+                      return SizedBox(height: 16);
+                    },
+                    itemBuilder: (context, index) {
+                      return RecipeTile(
+                        data: featuredRecipe[index],
+                      );
+                    },
+                  );
+                } catch (e) {
+                  return Center(
+                    child: Text('Error: $e'),
+                  );
+                }
               },
             ),
           ),
